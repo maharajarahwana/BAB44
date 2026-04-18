@@ -3,18 +3,7 @@
 
   <head>
     <meta charset="UTF-8">
-    <title>BAB44</title>
-    
-
-  </head>
-    
-  <body>
-  <!DOCTYPE html>
-<html lang="en">
-
-  <head>
-    <meta charset="UTF-8">
-    <title>BAB1</title>
+    <title>bab44</title>
     
 
   </head>
@@ -24,54 +13,107 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>Latihan Kosakata</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>bab44</title>
+
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    background: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
-  .card {
-    background: white;
-    padding: 30px;
-    width: 400px;
-    text-align: center;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  }
-  input {
-    width: 90%;
-    padding: 8px;
-    margin-top: 15px;
-  }
-  button {
-    margin-top: 20px;
-    padding: 8px 15px;
-    cursor: pointer;
-  }
-  .result {
-    font-size: 18px;
-    font-weight: bold;
-  }
-  .wrong { color: red; }
-  .correct { color: green; }
-  ol { text-align:left; max-height:400px; overflow:auto; }
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Arial, sans-serif;
+  background:#f4f4f4;
+  margin:0;
+  padding:15px;
+}
+
+.card{
+  background:white;
+  width:100%;
+  max-width:500px;
+  margin:auto;
+  padding:25px 20px;
+  text-align:center;
+  border-radius:10px;
+  box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+#question{
+  font-size:42px;
+  margin-bottom:10px;
+}
+
+input{
+  width:100%;
+  padding:12px;
+  font-size:16px;
+  margin-top:10px;
+  border:2px solid orange;
+  border-radius:6px;
+  outline:none;
+}
+
+button{
+  width:100%;
+  padding:12px;
+  font-size:16px;
+  margin-top:15px;
+  cursor:pointer;
+  background:#007BFF;
+  color:white;
+  border:none;
+  border-radius:6px;
+}
+
+.result{
+  font-size:20px;
+  font-weight:bold;
+}
+
+.correct{
+  color:green;
+}
+
+.wrong{
+  color:red;
+}
+
+/* Perbaikan agar nomor tidak terpotong */
+
+ol{
+  text-align:left;
+  max-height:65vh;
+  overflow-y:auto;
+  padding-left:30px;
+  margin:0;
+}
+
+li{
+  margin-bottom:8px;
+  line-height:1.4;
+}
+
 </style>
 </head>
+
 <body>
 
 <div class="card">
-  <h2 id="question"></h2>
-  <input type="text" id="answerInput" placeholder="Tulis jawaban di sini">
-  <br>
-  <button id="nextBtn">Selanjutnya</button>
+
+<h2 id="question"></h2>
+
+<input type="text" id="answerInput" placeholder="Tulis jawaban di sini">
+
+<button id="nextBtn">Selanjutnya</button>
+
 </div>
 
 <script>
+
 let questions = [
+
 { soal: "토목 시공", jawaban: "teknik sipil" },
 { soal: "누수가 발생하다", jawaban: "terjadi kebocoran" },
 { soal: "상수도관", jawaban: "pipa air" },
@@ -84,7 +126,9 @@ let questions = [
 { soal: "온도", jawaban: "suhu" },
 { soal: "상하수도", jawaban: "air bersih dan pembuangan" },
 { soal: "직사광선", jawaban: "sinar matahari langsung" },
-{ soal: "흙 / 토사", jawaban: "tanah / tanah galian" },
+{ soal: "토사", jawaban: "tanah" },
+{ soal: "흙", jawaban: "tanah" },
+{ soal: "땅", jawaban: "tanah" },
 { soal: "수로", jawaban: "saluran air" },
 { soal: "배관 연결", jawaban: "sambungan perpipaan" },
 { soal: "침전물", jawaban: "endapan" },
@@ -126,7 +170,8 @@ let questions = [
 { soal: "거대하다", jawaban: "sangat besar" },
 { soal: "딱딱하다", jawaban: "keras" },
 { soal: "사장교", jawaban: "jembatan kabel" },
-{ soal: "땅을 파다 / 터파기", jawaban: "menggali tanah" },
+{ soal: "땅을 파다", jawaban: "menggali tanah" },
+{ soal: "터파기", jawaban: "menggali tanah" },
 { soal: "다리", jawaban: "jembatan" },
 { soal: "관을 배치하다", jawaban: "menempatkan pipa" },
 { soal: "육상 터널", jawaban: "terowongan darat" },
@@ -139,14 +184,16 @@ let questions = [
 { soal: "교류", jawaban: "pertukaran" },
 { soal: "흙을 깎다", jawaban: "memotong tanah" },
 { soal: "촉진하다", jawaban: "mendorong / mempercepat" },
-{ soal: "흙을 쌓다 / 성토", jawaban: "menimbun tanah" },
+{ soal: "흙을 쌓다", jawaban: "menimbun tanah" },
+{ soal: "성토", jawaban: "menimbun tanah" },
 { soal: "기여하다", jawaban: "menyumbang" },
 { soal: "균열이 생기다", jawaban: "retakan muncul" },
-{ soal: "관 / 파이프", jawaban: "pipa" }
+{ soal: "파이프", jawaban: "pipa" }
+{ soal: "관", jawaban: "pipa" }
+
 ];
 
-// Acak soal
-questions = questions.sort(() => Math.random() - 0.5);
+questions = questions.sort(()=>Math.random()-0.5);
 
 let index = 0;
 let score = 0;
@@ -157,53 +204,58 @@ const answerInput = document.getElementById("answerInput");
 const nextBtn = document.getElementById("nextBtn");
 const card = document.querySelector(".card");
 
-function showQuestion() {
+function showQuestion(){
   questionEl.textContent = questions[index].soal;
-  answerInput.value = "";
+  answerInput.value="";
   answerInput.focus();
 }
 
-nextBtn.addEventListener("click", () => {
-  const userAnswer = answerInput.value.trim().toLowerCase();
-  userAnswers[index] = userAnswer; // simpan jawaban sesuai index
+nextBtn.addEventListener("click",()=>{
 
-  if (userAnswer === questions[index].jawaban) {
+  const userAnswer = answerInput.value.trim().toLowerCase();
+
+  userAnswers[index] = userAnswer;
+
+  if(userAnswer === questions[index].jawaban){
     score++;
   }
 
   index++;
-  if (index < questions.length) {
+
+  if(index < questions.length){
     showQuestion();
-  } else {
+  }else{
     showResult();
   }
+
 });
 
-function showResult() {
-  let answerList = "";
-  questions.forEach((q, i) => {
-    if (userAnswers[i] === q.jawaban) {
+function showResult(){
+
+  let answerList="";
+
+  questions.forEach((q,i)=>{
+
+    if(userAnswers[i] === q.jawaban){
       answerList += `<li>${q.soal} = <span class="correct">${q.jawaban}</span></li>`;
-    } else {
+    }else{
       answerList += `<li>${q.soal} = <span class="correct">${q.jawaban}</span><br>
-                     Jawaban kamu: <span class="wrong">${userAnswers[i] || "(kosong)"}</span></li>`;
+      Jawaban kamu: <span class="wrong">${userAnswers[i] || "(kosong)"}</span></li>`;
     }
+
   });
 
   card.innerHTML = `
-    <h2>Hasil</h2>
-    <hr>
-    <p>Kunci Jawaban:</p>
-    <ol>${answerList}</ol>
+  <hr>
+  <p>Kunci Jawaban:</p>
+  <ol>${answerList}</ol>
   `;
+
 }
 
 showQuestion();
+
 </script>
 
 </body>
-</html>
-    
-  </body>
-  
 </html>
